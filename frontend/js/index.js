@@ -249,25 +249,35 @@ document.addEventListener("DOMContentLoaded", function(){
   // Update Drink
   // ///////////////////////////
   function updateDrink(drink) {
-    let drinkDiv = document.querySelector(`#drink-${drink.id}`)
+    let drinkDiv = document.querySelector(`#drink-${drink.id}`) // div.card
     drinkDiv.innerHTML = `
-      <img src="${drink.image_url}">
-      <h3 class="drink-name"><span>Name:</span> ${drink.name}</h3>
-      <p class="drink-description"><span>Description:</span> ${drink.description}</p>
-      <ul>
-        <p class="drinkIngTitle">Ingredients:</p>
-        <li>${drink.ingredient1}</li>
-        <li>${drink.ingredient2}</li>
-        <li>${drink.ingredient3}</li>
-        <li>${drink.ingredient4}</li>
-        <li>${drink.ingredient5}</li>
-      </ul>
-      <p class="drink-garnish"><span>Garnish:</span> ${drink.garnish}</p>
-      <p class="drink-glass"><span>Glass:</span> ${drink.glass}</p>
-      <p class="drink-instructions"><span>Instructions:</span> ${drink.instructions}</p>
-      <div id="drink-options">
-        <button data-id="${drink.id}" class="ui medium blue button">Edit</button>
-        <button data-id="${drink.id}" class="ui medium red button">Delete</button>
+      <div class="image">
+        <img src="${drink.image_url}">
+      </div>
+      <div class="content">
+        <div class="header">${drink.name}</div>
+        <div class="meta">${drink.description}</div>
+        <div class="description">
+          <h5 class="drinkIngrTitle">Ingredients:</h5>
+          <ul>
+            <li>${drink.ingredient1}</li>
+            <li>${drink.ingredient2}</li>
+            <li>${drink.ingredient3}</li>
+            <li>${drink.ingredient4}</li>
+            <li>${drink.ingredient5}</li>
+          </ul>
+          <p class="drink-garnish"><span>Garnish:</span> ${drink.garnish}</p>
+          <p class="drink-glass"><span>Glass:</span> ${drink.glass}</p>
+          <p class="drink-instructions"><span>Instructions:</span> ${drink.instructions}</p>
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+          <button data-id="${drink.id}" class="ui medium blue button">Edit</button>
+        </span>
+        <span class="left floated">
+          <button data-id="${drink.id}" class="ui medium red button">Delete</button>
+        </span>
       </div>
     `
   }
